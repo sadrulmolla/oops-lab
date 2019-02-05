@@ -16,33 +16,40 @@ class subjects
 public:
 	void getmarks(void)
 	{
+		int i;
 		cout<<"subjects name: \n";
-		cin>>sub1name;
-		cin>>sub2name;
-		cin>>sub3name;
-		cin>>sub4name;
-		cin>>sub5name;
+		for(i=1;i<=5;i++)
+		{
+			cin>>subname[i];
+		}		
 		cout<<"\n"<<"subjects Marks: \n";
-		cin>>sub1M;
-		cin>>sub2M;
-		cin>>sub3M;
-		cin>>sub4M;
-		cin>>sub5M;
+		for(i=1;i<=5;i++)
+		{
+			cin>>subM[i];
+		}
+		
 	}
 	void marks(void)
 	{
-		cout<<sub1name<<": "<<sub1M<<endl;
-		cout<<sub2name<<": "<<sub2M<<endl;
-		cout<<sub3name<<": "<<sub3M<<endl;
-		cout<<sub4name<<": "<<sub4M<<endl;
-		cout<<sub5name<<": "<<sub5M<<endl;
+		int i;
+		for(i=1;i<=5;i++)
+		{
+			cout<<subname[i]<<": "<<subM[i]<<endl;
+		}
 	}
 	void singlemarks(void)
 	{
-		char subname[10];
+		char subn[10];
+		int i;
 		cout<<"Enter the subject name: ";
-		cin>>subname;
-		if(strcmp(subname,))
+		cin>>subn;
+		for(i=1;i<=5;i++)
+		{
+			if(strcmp(subn,subname[i])==0)
+			{
+				cout<<subname[i]<<": "<<subM[i]<<endl;
+			}
+		}
 	}
 };
 
@@ -57,6 +64,7 @@ class Student
 	char name[30];
 	char course[10];
 	char admdate[10];
+	char faculty[10];
 	subjects sublist;
 public:
 	void getvalue(void)
@@ -69,6 +77,8 @@ public:
 		cin>>course;
 		cout<<"Enter the addmisson Date: ";
 		cin>>admdate;
+		cout<<"Enter the Faculty Name: ";
+		cin>>faculty;
 		sublist.getmarks();//get marks in all subjects
 	}
 	char*returname(void){return name;}
@@ -80,6 +90,7 @@ public:
 		cout<<"Admisson date: "<<admdate<<endl;
 	}
 	int returnroll(void){return roll;}
+	char*returnfac(void){return faculty;}
 	void showmarks(void)
 	{
 		sublist.marks();
@@ -111,7 +122,7 @@ public:
 	void printname(void)
 	{
 		int i;
-		for(i=0;i<count;i++)
+		for(i=0;i<=count;i++)
 		{
 			cout<<i+1<<". ";
 			cout<<list[i].returname();
@@ -123,7 +134,7 @@ public:
 		int i,rollno;
 		cout<<"Roll of the student: ";
 		cin>>rollno;
-		for(i=0;i<count;i++)
+		for(i=0;i<=count;i++)
 		{
 			if(rollno==list[i].returnroll())
 			{
@@ -162,6 +173,20 @@ public:
 			}
 		}
 	}
+	void showfacultydetails(void)
+	{
+		int i;
+		char fac[10];
+		cout<<"Enter the Faculty name:";
+		cin>>fac;
+		for(i=0;i<=count;i++)
+		{
+			if(strcmp(fac,list[i].returnfac())==0)
+			{
+				cout<<list[i].returname();
+			}
+		}
+	}
 };
 
 
@@ -176,7 +201,7 @@ int main(void)
 		cout<<"\n--------------------------------------------------"<<endl;
 		cout<<"chose any option"<<endl;
 		cout<<"--------------------------------------------------"<<endl;
-		cout<<"1.Want to add details of a student\n2.Show details of a student\n3.Marksheet of a student\n4.show marks in a subject\n4.EXIT\n:";
+		cout<<"1.Want to add details of a student\n2.Show details of a student\n3.Marksheet of a student\n4.show marks in a subject\n5.show the student list\n6.show the list of a Faculty\n7.EXIT\n:";
 		cin>>opt;
 		switch(opt)
 		{
@@ -184,20 +209,27 @@ int main(void)
 				c.preparelist();
 				break;
 			case 2:
-				cout<<"\nNAME LIST OF THE STUDENTS\n";
-				cout<<"-------------------------------\n";
-				c.printname();
 				c.showdetails();
 				break;
 			case 3:
 				cout<<"\nMARKSHEET\n";
 				cout<<"---------------------------------\n";
-				c.printname();
 				c.marksheet();
 				break;
 			case 4:
 				c.showsubmarks();
+				break;
+			case 5:
+				cout<<"\nNAME LIST OF THE STUDENTS\n";
+				cout<<"-------------------------------\n";
+				c.printname();
+				break;
+			case 6:
+				c.showfacultydetails();
+				break;
+			case 7:
 				exit(0);
+
 			default:
 				cout<<"This is Not a Valid option";
 				break;
