@@ -87,6 +87,7 @@ public:
 		cout<<"name: "<<name<<endl;
 		cout<<"Roll No: "<<roll<<endl;
 		cout<<"Course name: "<<course<<endl;
+		cout<<"Faculty: "<<faculty<<endl;
 		cout<<"Admisson date: "<<admdate<<endl;
 	}
 	int returnroll(void){return roll;}
@@ -108,28 +109,30 @@ class studentlist
 	Student list[10];//to make a student list 
 	int count;//no of student has taken addmisson
 public:
-	studentlist()
+	studentlist()//constructor
 	{
 		count=0;
 	}
-	void preparelist(void)
+	void preparelist(void)//to add another student's details
 	{
 		Student t;
 		t.getvalue();
 		list[count]=t;
 		count++;
 	}
-	void printname(void)
+	void printname(void)//to print all student's name and roll
 	{
 		int i;
+		cout<<"NAME"<<"\t   "<<"ROLL NO"<<endl;
+		cout<<"-----------------------------------------------------------\n";
 		for(i=0;i<=count;i++)
 		{
 			cout<<i+1<<". ";
-			cout<<list[i].returname();
+			cout<<list[i].returname()<<"\t"<<list[i].returnroll()<<endl;
 			cout<<endl;
 		}
 	}
-	void marksheet(void)
+	void marksheet(void)//to show the marksheet a student
 	{
 		int i,rollno;
 		cout<<"Roll of the student: ";
@@ -143,7 +146,7 @@ public:
 			}
 		}
 	}
-	void showdetails(void)
+	void showdetails(void)//to show details of a student
 	{
 		int i;
 		int rollno;
@@ -158,7 +161,7 @@ public:
 			}
 		}
 	}
-	void showsubmarks(void)
+	void showsubmarks(void)//to show marks of particular subject
 	{
 		int i;
 		int rollno;
@@ -173,17 +176,20 @@ public:
 			}
 		}
 	}
-	void showfacultydetails(void)
+	void showfacultydetails(void)//to show the  list of student of a faculty 
 	{
 		int i;
 		char fac[10];
 		cout<<"Enter the Faculty name:";
 		cin>>fac;
+		cout<<"\n----------------------------------------------------------\n";
+		cout<<"NAME"<<"\t   "<<"  ROLL NO"<<endl;
+		cout<<"-----------------------------------------------------------\n";
 		for(i=0;i<=count;i++)
 		{
 			if(strcmp(fac,list[i].returnfac())==0)
 			{
-				cout<<list[i].returname();
+				cout<<list[i].returname()<<"\t"<<list[i].returnroll()<<endl;
 			}
 		}
 	}
@@ -220,8 +226,8 @@ int main(void)
 				c.showsubmarks();
 				break;
 			case 5:
-				cout<<"\nNAME LIST OF THE STUDENTS\n";
-				cout<<"-------------------------------\n";
+				cout<<"\nNAME AND ROLL OF ALL THE STUDENTS\n";
+				cout<<"-------------------------------------------------\n";
 				c.printname();
 				break;
 			case 6:
@@ -235,4 +241,5 @@ int main(void)
 				break;
 		}
 	}
+	return 0;
 }
