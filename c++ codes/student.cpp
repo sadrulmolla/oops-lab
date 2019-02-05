@@ -53,9 +53,6 @@ public:
 	}
 };
 
-//-----------------class for faculty name ----------------------------------------
-
-
 //--------------class for store a students details--------------------------------
 
 class Student
