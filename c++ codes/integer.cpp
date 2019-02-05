@@ -1,3 +1,8 @@
+
+
+//-------------------------code to make a object behave like an integer or oprator overloading---------------------------
+
+
 #include<iostream>
 #include<cstring>
 
