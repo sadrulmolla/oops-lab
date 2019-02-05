@@ -1,3 +1,7 @@
+
+
+//======================================programe to make a student marksheet and show his/her details=============================
+
 #include<iostream>
 #include<cstring>
 
