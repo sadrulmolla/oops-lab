@@ -1,3 +1,6 @@
+
+//===============================programe to degine a item list contain item code,name,rate and quientity======================
+
 #include<iostream>
 #include<cstring>
 
