@@ -51,6 +51,24 @@ public:
 			}
 		}
 	}
+	void update(void)
+	{
+		char subn[10];
+		int i;
+		int submark;
+		cout<<"Enter the subject name: ";
+		cin>>subn;
+		cout<<"Enter the new marks : ";
+		cin>>submark;
+		for(i=1;i<=5;i++)
+		{
+			if(strcmp(subn,subname[i])==0)
+			{
+				subM[i]=submark;
+			}
+		}
+
+	}
 };
 
 //--------------class for store a students details--------------------------------
@@ -96,6 +114,19 @@ public:
 	void submarks(void)
 	{
 		sublist.singlemarks();
+	}
+	void update_submarks(void)
+	{
+		sublist.update();
+		while(1)
+		{
+			int opt;
+			cout<<"Want to upadate another subject marks:\n1.yes\n2.NO\n:";
+			cin>>opt;
+			if(opt==1){sublist.update();}
+			else if(opt==2){break;}
+			else{cout<<"please give a valid option:\n";}
+		}
 	}
 };
 
@@ -190,6 +221,22 @@ public:
 			}
 		}
 	}
+	void updatemarks(void)//to update the marks of a particular
+	{
+		int i;
+		int rollno;
+		cout<<"ROLL NO of the student: ";
+		cin>>rollno;
+		for(i=0;i<=count;i++)
+		{
+			if(rollno==list[i].returnroll())
+			{
+				list[i].update_submarks();
+				break;
+			}
+		}
+
+	}
 };
 
 
@@ -204,7 +251,7 @@ int main(void)
 		cout<<"\n--------------------------------------------------"<<endl;
 		cout<<"chose any option"<<endl;
 		cout<<"--------------------------------------------------"<<endl;
-		cout<<"1.Want to add details of a student\n2.Show details of a student\n3.Marksheet of a student\n4.show marks in a subject\n5.show the student list\n6.show the list of a Faculty\n7.EXIT\n:";
+		cout<<"1.Want to add details of a student\n2.Show details of a student\n3.Marksheet of a student\n4.show marks in a subject\n5.show the student list\n6.show the list of a Faculty\n7.update the marks of a subject\n8.EXIT\n:";
 		cin>>opt;
 		switch(opt)
 		{
@@ -231,8 +278,10 @@ int main(void)
 				c.showfacultydetails();
 				break;
 			case 7:
+				c.updatemarks();
+				break;
+			case 8:
 				exit(0);
-
 			default:
 				cout<<"This is Not a Valid option";
 				break;
