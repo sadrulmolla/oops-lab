@@ -1,5 +1,9 @@
 
+
+
 //==================================================programe to make  a array class of a specific size=========================================
+
+
 
 #include<iostream>
 #include<cstring>
@@ -43,7 +47,7 @@ public:
 			ptr[i]=value;
 		}
 	}
-	array(array &b)
+	array(array& b)
 	{
 		size=b.size;
 		if(size!=0)
@@ -83,7 +87,7 @@ public:
 		}
 		cout<<endl;
 	}
-	array operator +(array &a)
+	array operator + (array a)
 	{
 		array t(size);
 		for(int i=0;i<size;i++)
@@ -92,17 +96,50 @@ public:
 		}
 		return t;
 	}
-	void operator =(array &a)
+	array operator = (array a)
 	{
 		for(int i=0;i<size;i++)
 		{
 			a.ptr[i]=ptr[i];
 		}
+		return*this;
 	}
-		
-	int returnsize(void){return size;}			
+	int operator [] (int a)
+	{
+		return ptr[a];
+	}
+	array operator * (int a)
+	{
+		array t(size);
+		int i;
+		for(i=0;i<size;i++)
+		{
+			t.ptr[i]=ptr[i]*a;
+		}
+		return t;
+	}
+	int returnsize(void){return size;}
 
 };
+
+//------------------to add two array and make equal two array ------------------------
+
+void addarray(array arr,array arr1)
+{
+	if(arr.returnsize()==arr1.returnsize())
+	{
+		array arr4(arr.returnsize());
+		arr4=arr1+arr;
+		arr4.display();
+		arr4=arr;
+		arr4.display();
+	}
+	else
+	{
+		cout<<"size of both array have to be same";
+	}
+}
+
 
 int main(void)
 {
@@ -115,7 +152,7 @@ int main(void)
 	{
 		cin>>Arr[i];
 	}
-	array arr(3);
+	array arr(4);
 	array arr1(4,5);
 	array arr2=arr1;
 	array arr3(Arr,size);
@@ -123,17 +160,18 @@ int main(void)
 	arr1.display();
 	arr2.display();
 	arr3.display();
-	if(arr.returnsize()==arr3.returnsize())
-	{
-		array arr4(arr.returnsize());
-		arr4=arr+arr3;
-		arr4.display();
-		arr4=arr;
-		arr4.display();
-	}
-	else
-	{
-		cout<<"size of both array have to be same";
-	}
+	int cons;
+	cout<<"constructor type of a & b:\n1.default\n2.parameterized\n3.coppy\n4.array initialized with another\n=>";
+	cin>>cons;
+
+	
+	cout<<"Enter the array no:";
+	int en,no;
+	cin>>no;
+	en=arr3[no];
+	cout<<en<<endl;
+	array arr5(arr3.returnsize());
+	arr5=arr3*5;
+	arr5.display();
 	return 0;
 }
