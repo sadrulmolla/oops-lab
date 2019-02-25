@@ -128,11 +128,9 @@ void addarray(array arr,array arr1)
 {
 	if(arr.returnsize()==arr1.returnsize())
 	{
-		array arr4(arr.returnsize());
-		arr4=arr1+arr;
-		arr4.display();
-		arr4=arr;
-		arr4.display();
+		(arr1+arr).display();
+		arr1=arr;
+		arr1.display();
 	}
 	else
 	{
@@ -161,8 +159,29 @@ int main(void)
 	arr2.display();
 	arr3.display();
 	int cons;
-	cout<<"constructor type of a & b:\n1.default\n2.parameterized\n3.coppy\n4.array initialized with another\n=>";
+	cout<<"constructor type of a & b:\n1.default & parameterized\n2.parameterized & coppy\n3.coppy & array initialized\n4.array initialized and default\n5.parameterized & array initialized\n6.copy & default\n=>";
 	cin>>cons;
+	switch(cons)
+	{
+		case 1:
+			addarray(arr,arr1);
+			break;
+		case 2:
+			addarray(arr1,arr2);
+			break;
+		case 3:
+			addarray(arr2,arr3);
+			break;
+		case 4:
+			addarray(arr3,arr2);
+			break;
+		case 5:
+			addarray(arr1,arr3);
+		case 6:
+			addarray(arr,arr2);
+		default:
+			cout<<"this is not valid option";
+	}
 
 	
 	cout<<"Enter the array no:";
@@ -170,8 +189,25 @@ int main(void)
 	cin>>no;
 	en=arr3[no];
 	cout<<en<<endl;
-	array arr5(arr3.returnsize());
-	arr5=arr3*5;
-	arr5.display();
+	switch(cons)
+	{
+		case 1:
+			(arr*5).display();
+			break;
+		case 2:
+			(arr1*5).display();
+			break;
+		case 3:
+			(arr2*5).display();
+			break;
+		case 4:
+			(arr3*5).display();
+			break;
+		case 5:
+			(arr1*5).display();
+			break;
+		case 6:
+			(arr*5).display();
+	}
 	return 0;
 }
