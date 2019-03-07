@@ -67,6 +67,7 @@ public:
 		cout<<"Account Type: Saving Account"<<endl;
 		cout<<"\n====================================================\n";
 	}
+	int returnblance(void){return blance;}
 };
 class current:public Blance
 {
@@ -91,7 +92,7 @@ public:
 		cin>>type;
 		cout<<"Enter the Amount: ";
 		cin>>amount;
-		if(amount>(blance+2000) && type==1)
+		if(amount>(blance+20000) && type==1)
 		{
 			cout<<"Transaction Faild";
 		}
@@ -112,8 +113,8 @@ public:
 
 class blancelist
 {
-	current clist[5];
-	saving slist[5];
+	current clist[6];
+	saving slist[6];
 	int count1,count2;
 public:
 	blancelist()
@@ -174,10 +175,14 @@ public:
 		{
 			cout<<"The Account No can't be same.";
 		}
-		else
+		else if(t.returnblance()>500)
 		{
 			slist[count2]=t;
 			count2++;
+		}
+		else
+		{
+			cout<<"Amount cant be less then 500";
 		}
 	}
 	void update(void)

@@ -2,8 +2,7 @@
 #include<cstring>
 
 using namespace std;
-template <class T>
-
+//template <class T>
 struct file
 {
 	char*name=new char [20];
@@ -87,7 +86,7 @@ public:
 	void recevingtoll(void)
 	{
 		int t;
-		T cartype;
+		int cartype;
 		cout<<"Enter the Amount of Tax\n=>";
 		cin>>t;
 		cout<<"Enter the Car type(2/3/4......wheelers)\n=>";
