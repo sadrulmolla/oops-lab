@@ -238,6 +238,7 @@ int main(void)
 {
 	blancelist b;
 	int opt;
+	system("clear");
 	while(1)
 	{
 		cout<<"\n--------------------------------------------------------\n";
@@ -245,6 +246,7 @@ int main(void)
 		cout<<"\n---------------------------------------------------------\n";
 		cout<<"1.Enter New saving Account\n2.Enter New Current Account\n3.Make a Transaction\n4.Display Details of an Account\n5.EXIT\n=>";
 		cin>>opt;
+		system("clear");
 		switch(opt)
 		{
 			case 1:

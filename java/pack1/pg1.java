@@ -10,6 +10,7 @@ class student
 	int day,month,year;
 	String  subname[]=new String[5];
 	int submarks[]=new int[5];
+	int total;
 
 	Scanner s =new Scanner(System.in);
 
@@ -51,9 +52,11 @@ class student
 		{
 			System.out.println(subname[i]+": "+submarks[i]);
 		}
+		System.out.println("Total: "+total);
 		System.out.println("===================================");
 	}
-	public void prtname(){System.out.println(name);}
+	public void prtname(){System.out.print(name+"=>");}
+	public void prtroll(){System.out.println(roll);}
 }
 
 class bcse extends student
@@ -62,7 +65,7 @@ class bcse extends student
 	public void getRoll()
 	{
 		String sta1= Integer.toString(year);
-		String sta2= Integer.toString(count);
+		String sta2= Integer.toString(count+1);
 		sta1=sta1.substring(3,4);
 		if(count==100)
 		{
@@ -87,7 +90,7 @@ class etce extends student
 	public void getRoll()
 	{
 		String sta1= Integer.toString(year);
-		String sta2= Integer.toString(count);
+		String sta2= Integer.toString(count+1);
 		sta1=sta1.substring(3,4);
 		if(count==100)
 		{
@@ -112,7 +115,7 @@ class civil extends student
 	public void getRoll()
 	{
 		String sta1= Integer.toString(year);
-		String sta2= Integer.toString(count);
+		String sta2= Integer.toString(count+1);
 		sta1=sta1.substring(3,4);
 		if(count==100)
 		{
@@ -136,7 +139,7 @@ class elctr extends student
 	public void getRoll()
 	{
 		String sta1= Integer.toString(year);
-		String sta2= Integer.toString(count);
+		String sta2= Integer.toString(count+1);
 		sta1=sta1.substring(3,4);
 		if(count==100)
 		{
@@ -162,6 +165,7 @@ class Studentlist
 	private elctr el[] = new elctr[5];
 	private etce etc[] = new etce[5];
 	private civil cl[]= new civil[5];
+
 
 	public int getdeperment()
 	{
@@ -236,10 +240,10 @@ class Studentlist
 		System.out.print("Enter The Roll No(Excluding Deperment Code): ");
 		r=src.nextInt();
 		try{
-		if(opt1==1){cs[r].display();}
-		else if(opt1==2){etc[r].display();}
-		else if(opt1==3){cl[r].display();}
-		else if(opt1==4){el[r].display();}
+		if(opt1==1){cs[r-9000].display();}
+		else if(opt1==2){etc[r-9000].display();}
+		else if(opt1==3){cl[r-9000].display();}
+		else if(opt1==4){el[r-9000].display();}
 		else{System.out.println("Enter A Valid Option");}
 		}
 		catch(NullPointerException e ){
@@ -253,9 +257,11 @@ class Studentlist
 		if(opt==1)
 		{
 			n=cs[1].return_count();
-			for(i=0;i<n;i++)
+			for(i=1;i<=n;i++)
 			{
+				System.out.print(i+".");
 				cs[i].prtname();
+				cs[i].prtroll();
 			}
 		}
 
