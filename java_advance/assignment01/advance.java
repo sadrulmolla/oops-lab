@@ -125,7 +125,7 @@ class test
 	}
 	public void gui()
 	{
-		f=new JFrame("Practice");
+		f=new JFrame("Advance");
 		f.setVisible(true);
 		f.setSize(400,600);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -151,7 +151,7 @@ class test
 		}); 
 	}
 }
-public class practice
+public class advance
 {
 	public static void main(String []args)throws IOException
 	{

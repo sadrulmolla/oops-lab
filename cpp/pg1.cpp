@@ -72,6 +72,10 @@ class time12
 		{
 			if(strcmp(t,"PM")==0)
 				hour=hour+12;
+				if(hour>=24)
+				{
+					hour=hour%24;
+				}
 		}
 		void display(void)
 		{
@@ -107,8 +111,8 @@ int main(void)
 		t1.timedisplay();
 		printf("Want to add minute\n1.yes\n2.No");
 		int c;
-		scanf("%d\n",&c);
-		if(c=1)
+		scanf("%d",&c);
+		if(c==1)
 		{
 			int min; 
 			scanf("%d",&min);
@@ -125,8 +129,8 @@ int main(void)
 		t2.display();
 		printf("Want to add minute\n1.yes\n2.no\n");
 		int c;
-		scanf("%d\n",&c);
-		if(c=1)
+		scanf("%d",&c);
+		if(c==1)
 		{	
 			int min; 
 			scanf("%d",&min);
@@ -134,4 +138,5 @@ int main(void)
 			t2.display();
 		}
 	}
+	return 0;
 }

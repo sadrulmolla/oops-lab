@@ -20,8 +20,8 @@ public:
 		cout<<"Enter the complex Number:";
 		cin>>s;
 		int index = s.find_first_of("+i");
-		real = atoi(s.substr(0,index).c_str()) ;
-		imag = atoi(s.substr(index+2,3).c_str()) ;
+		real = atoi(s.substr(0,index).c_str());
+		imag = atoi(s.substr(index+2,3).c_str());
 	}
 	complex operator+(complex c2)
 	{
@@ -39,18 +39,18 @@ public:
 	}
 	void display(void)
 	{
-		//if(imag!=0 && real!=0)
-		//{
+		if(imag!=0 && real!=0)
+		{
 			cout<<real<<"+i"<<imag<<endl;
-	//	}
-	//	else if(imag==0)
-	//	{
-	//		cout<<real<<endl;
-	//	}
-	//	else if(real==0)
-	//	{
-	//		cout<<"+i"<<imag<<endl;
-	//	}
+		}
+		else if(imag==0)
+		{
+			cout<<real<<endl;
+		}
+		else if(real==0)
+		{
+			cout<<"i"<<imag<<endl;
+		}
 	}
 	
 };
